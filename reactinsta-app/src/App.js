@@ -15,6 +15,7 @@ function App() {
       {user && <Box name = {user}></Box>}
       {/* If user exists then display the username inthe Box component */}
       {(user == "Harry") ? <Box name="Harry logged in" /> : <Box name = "Harry not logged in"/>}
+      {/* IF user equals (==) Harry THEN(?) display Harry logged in (: or ELSE) Harry not logged in */}
       <Box name ="George"></Box>
       <Box name ="Hermione"></Box>
       <Box name ="Mafalda"></Box>
