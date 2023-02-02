@@ -18,7 +18,13 @@ const UpdateEmail = ({setter}) => {
     <form onSubmit={submitHandler}>
       {/* Code to change email goes here */}
       <input onChange={(event) => setEmail(event.target.value)} />
-      
+      {email && <updateBox email = {updateEmail}></updateBox>}
+      {(email === "updateEmail") ? <updateBox name="Email Updated" /> : <updateBox name = "INCORRECT EMAIL"/>}
+      {myArray.map((item,index) => {return (
+        <div>
+          <updateBox updateEmail={item.updateEmail} />
+        </div>
+      )})};
       <button onClick={submitHandler}>Update Email</button>
     </form>
   )

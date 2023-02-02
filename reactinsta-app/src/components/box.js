@@ -6,4 +6,3 @@ function Box({name}) {
     </div>
   )
 };
-export default Box;

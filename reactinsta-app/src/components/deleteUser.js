@@ -18,8 +18,14 @@ const DeleteUser = ({setter}) => {
   return (
     <form onSubmit={submitHandler}>
       <input onChange = {(event) => deleteUser(event.target.value)} /> 
-     {/* enter code to check user is in db then delete */}
-     {/* {(user === "username") ? deleteUser.username*/}
+      {user && <deleteBox user = {deleteUser}></deleteBox>}
+      {(User === "deleteUser") ? <deleteBox name = "User Deleted" /> : <deleteBox name = "INCORRECT USER"/>}
+      <input onChange={(event) => deleteUser(event.target.value)} />
+        {myArray.map((item,index) => {return (
+        <div>
+          <deleteBox deleteUser={item.deleteUser} />
+        </div>
+      )})};
      <button onClick={submitHandler}> Delete User </button>
     </form>
   )
