@@ -17,7 +17,7 @@ const DeleteUser = ({setter}) => {
 
   return (
     <form onSubmit={submitHandler}>
-      <input onChange = {(event) => deleteUser(event.target.value)} /> 
+      {/* <input onChange = {(event) => deleteUser(event.target.value)} /> 
       {user && <deleteBox user = {deleteUser}></deleteBox>}
       {(User === "deleteUser") ? <deleteBox name = "User Deleted" /> : <deleteBox name = "INCORRECT USER"/>}
       <input onChange={(event) => deleteUser(event.target.value)} />
@@ -25,7 +25,7 @@ const DeleteUser = ({setter}) => {
         <div>
           <deleteBox deleteUser={item.deleteUser} />
         </div>
-      )})};
+      )})}; */}
      <button onClick={submitHandler}> Delete User </button>
     </form>
   )

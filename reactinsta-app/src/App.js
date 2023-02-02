@@ -7,8 +7,8 @@ import { readCookie } from './common/index';
 import { authCheck } from './utils/utilities'
 import AddUser from './components/addUser';
 import ListUsers from './components/listUsers';
-import DeleteUser from './components/deleteUser';
-import UpdateEmail from './components/updateEmail';
+// import DeleteUser from './components/deleteUser';
+// import UpdateEmail from './components/updateEmail';
 
 //in a react app JS goes here, use if statements here not in JSX section
 
@@ -63,8 +63,8 @@ function App() {
       <br></br>
       <AddUser setter={setUser}/>
       <ListUsers setter={setUser}/>
-      <DeleteUser setter={setUser}/>
-      <UpdateEmail setter={setUser}/>
+      {/* <DeleteUser setter={setUser}/>
+      <UpdateEmail setter={setUser}/> */}
       
       {user ? photos.map((item,index) => {
         return (

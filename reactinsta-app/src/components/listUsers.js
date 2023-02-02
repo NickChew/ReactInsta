@@ -6,7 +6,8 @@ const ListUsers = ({setter}) => {
   const [username, setUsername] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
- 
+  const [user, setUser] = useState();
+
   const submitHandler = async (event) =>{
     event.preventDefault();
     console.log("executing User List request")
@@ -15,16 +16,16 @@ const ListUsers = ({setter}) => {
 
   return (
     <form onSubmit={submitHandler}>
-       {/* code to list users goes here */}
+       {/* code to list users goes here
        <input onChange = {(event) => setUser(event.target.value)} /> 
       {user && <Box name = {user}></Box>} 
       {/* If user exists then display the username in the Box component */}
 
-      {user.map((item,index) => {return (
+      {/* {user.map((item,index) => {return (
         <div>
           <Box name={item.name} />
         </div>
-      )})};
+      )})}; */}
       <button onClick={submitHandler}> List Users </button>
    
     </form>
