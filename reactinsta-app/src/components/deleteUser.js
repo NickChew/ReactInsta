@@ -17,8 +17,8 @@ const DeleteUser = ({setter}) => {
 
   return (
     <form onSubmit={submitHandler}>
-      {/* <input onChange = {(event) => deleteUser(event.target.value)} /> 
-      {user && <deleteBox user = {deleteUser}></deleteBox>}
+      <input onChange = {(event) => deleteUser(event.target.value)} /> 
+      {/* {user && <deleteBox user = {deleteUser}></deleteBox>}
       {(User === "deleteUser") ? <deleteBox name = "User Deleted" /> : <deleteBox name = "INCORRECT USER"/>}
       <input onChange={(event) => deleteUser(event.target.value)} />
         {myArray.map((item,index) => {return (
