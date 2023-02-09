@@ -92,7 +92,7 @@ export const listUsers = async (setUserList) => {
                 }
     )
       
-  const data = await response.json();
+    const data = await response.json();
     setUserList (data.user)
     console.log("listUsers",data.user)
 
@@ -101,23 +101,23 @@ export const listUsers = async (setUserList) => {
   }
 
 }
-//not working!
-export const updateEmail = async (username,email,password,setter,cookie) => {
+
+export const updateEmail = async (username,newEmail,password,setter,cookie) => {
   try {
-    const response = await fetch(`${process.env.REACT_APP_REST_API_URL}updateEmail`,{
+    const response = await fetch(`${process.env.REACT_APP_REST_API_URL}updateEmail`, {
         method: "PUT",
         headers:{"Content-Type":"application/json",
                 "Authorization":`Bearer ${cookie}`},          
         body: JSON.stringify({
           username: username,
-          email: email,
+          email: newEmail,
           password: password
         }
       )
     })
     const data = await response.json();
     setter(data.user);
-    console.log(data)
+    // console.log(data)
     storeCookie("jwt_token",data.token,7);
   } catch (error) {
     console.log(error);   
