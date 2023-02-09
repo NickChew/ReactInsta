@@ -1,14 +1,14 @@
 
 import './App.css';
-import Box from "./components/box";
+// import Box from "./components/box";
 import { useState, useEffect } from 'react';
 import Login from './components/Login';
 import { readCookie } from './common/index';
 import { authCheck } from './utils/utilities'
 import AddUser from './components/addUser';
 import ListUsers from './components/listUsers';
-// import DeleteUser from './components/deleteUser';
-// import UpdateEmail from './components/updateEmail';
+import DeleteUser from './components/deleteUser';
+import UpdateEmail from './components/updateEmail';
 
 //in a react app JS goes here, use if statements here not in JSX section
 
@@ -33,9 +33,7 @@ function App() {
     }
   },[]);
   
-  // const myArray = [{name:"Harry"},{ name:"George"}, {name:"Hermione"},{name:"Mafalda"},{name:"Percy"}];
-
-  const fetchImages = async () => {
+   const fetchImages = async () => {
     const response = await fetch ("https://picsum.photos/v2/list");
     console.log(response)
     const data = await response.json();
@@ -63,8 +61,8 @@ function App() {
       <br></br>
       <AddUser setter={setUser}/>
       <ListUsers setter={setUser}/>
-      {/* <DeleteUser setter={setUser}/>
-      <UpdateEmail setter={setUser}/> */}
+      <DeleteUser setter={setUser}/>
+      <UpdateEmail setter={setUser}/>
       
       {user ? photos.map((item,index) => {
         return (

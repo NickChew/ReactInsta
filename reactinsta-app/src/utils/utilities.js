@@ -1,5 +1,5 @@
 
-import { storeCookie } from "../common";
+import { storeCookie, readCookie } from "../common";
 
 export const login = async (username,email,password,setter,cookie) => {
   try {
@@ -82,11 +82,32 @@ export const deleteUser = async (username,email,password,setter,cookie) => {
   }
 }
 
-export const listUsers = async (username,email,password,setter,cookie) => {
+export const listUsers = async (setUserList) => {
+  let cookie = readCookie("jwt_token")
   try {
-    const response = await fetch(`${process.env.REACT_APP_REST_API_URL}listUsers`,{
+    const response = await fetch(`${process.env.REACT_APP_REST_API_URL}listUser`,{
         method: "GET",
-        headers:{"Content-Type":"application/json"},
+        headers:{"Content-Type":"application/json",
+                "Authorization":`Bearer ${cookie}`}        
+                }
+    )
+      
+  const data = await response.json();
+    setUserList (data.user)
+    console.log("listUsers",data.user)
+
+  } catch (error) {
+    console.log(error)    
+  }
+
+}
+//not working!
+export const updateEmail = async (username,email,password,setter,cookie) => {
+  try {
+    const response = await fetch(`${process.env.REACT_APP_REST_API_URL}updateEmail`,{
+        method: "PUT",
+        headers:{"Content-Type":"application/json",
+                "Authorization":`Bearer ${cookie}`},          
         body: JSON.stringify({
           username: username,
           email: email,
@@ -99,27 +120,6 @@ export const listUsers = async (username,email,password,setter,cookie) => {
     console.log(data)
     storeCookie("jwt_token",data.token,7);
   } catch (error) {
-    console.log(error)    
-  }
-}
-
-export const updateEmail = async (username,email,password,setter,cookie) => {
-  try {
-    const response = await fetch(`${process.env.REACT_APP_REST_API_URL}updateEmail`,{
-        method: "PUT",
-        headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({
-          username: username,
-          email: email,
-          password: password
-        }
-      )
-    })
-    const data = await response.json();
-    setter(data.user);
-    // console.log(data)
-    storeCookie("jwt_token",data.token,7);
-  } catch (error) {
-    console.log(error)    
+    console.log(error);   
   }
 }

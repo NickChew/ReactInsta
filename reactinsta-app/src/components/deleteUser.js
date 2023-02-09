@@ -6,7 +6,7 @@ const DeleteUser = ({setter}) => {
   const [username, setUsername] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [deleteUser, setDeleteUser] = useState();
+  // const [deleteUser, setDeleteUser] = useState();
 
 
   const submitHandler = async (event) =>{
@@ -17,15 +17,10 @@ const DeleteUser = ({setter}) => {
 
   return (
     <form onSubmit={submitHandler}>
-      <input onChange = {(event) => deleteUser(event.target.value)} /> 
-      {/* {user && <deleteBox user = {deleteUser}></deleteBox>}
-      {(User === "deleteUser") ? <deleteBox name = "User Deleted" /> : <deleteBox name = "INCORRECT USER"/>}
-      <input onChange={(event) => deleteUser(event.target.value)} />
-        {myArray.map((item,index) => {return (
-        <div>
-          <deleteBox deleteUser={item.deleteUser} />
-        </div>
-      )})}; */}
+      <input onChange={(event) => setUsername(event.target.value)} />
+      <input onChange={(event) => setEmail(event.target.value)} />
+      <input onChange={(event) => setPassword(event.target.value)} />
+     
      <button onClick={submitHandler}> Delete User </button>
     </form>
   )
